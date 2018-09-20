@@ -8,7 +8,7 @@ make setup
 # Usage
 
 ```sh
-(venv) parthpatel@Parths-MacBook-Pro tycho_influenza (master) $ make parse_data
+parthpatel@Parths-MacBook-Pro tycho_influenza (master) $ make parse_data
 +--------+------------------+
 |   Year |   # of Instances |
 |--------+------------------|

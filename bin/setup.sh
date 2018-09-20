@@ -16,6 +16,7 @@ if [ ! -d venv ]; then
 	virtualenv venv
 fi
 
+mkdir -p data
 source venv/bin/activate
 pip3 install requirements.txt
 echo 'Setup complete; run `source venv/bin/activate` to load environment'

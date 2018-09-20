@@ -1,4 +1,6 @@
 import sys
+from tabulate import tabulate
+
 assert len(sys.argv) > 1
 file_loc = sys.argv[1]
 
@@ -33,12 +35,21 @@ def get(headers, row, property):
 # 18 : "SourceName"
 # 19 : "CountValue"
 
-
+# get the file and headers
 file = read_file(file_loc)
-headers = next(file)
-print(headers)
+headers = [l.strip().replace('"','') for l in next(file).split(",")]
 
-# the rest of the rows
-# for row in file:
-	# # do stuff
-	# pass
+# do things w/ the data
+instances_over_year = {}
+for row in file:
+	row = row.split(',')
+	date = get(headers, row, "PeriodStartDate")
+	year = date.split('-')[0].replace('"','')
+	instances_over_year[year] = instances_over_year.setdefault(year, 0) + 1
+
+print(tabulate(
+	# print sorted by years
+	sorted(instances_over_year.items(), key=lambda x: x[0]),
+	headers=['Year', '# of Instances'],
+	tablefmt='psql'
+))

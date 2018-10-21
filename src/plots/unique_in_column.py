@@ -9,7 +9,7 @@ from src.lib.data_models import DataFile
 assert len(sys.argv) > 2
 file_loc, column_name = sys.argv[1], sys.argv[2]
 
-print("#### Reading data from '%s'" % file_loc)
+#print("#### Reading data from '%s'" % file_loc)
 pathogen_names = set()
 
 with DataFile(file_loc) as file:

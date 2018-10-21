@@ -3,6 +3,11 @@
 setup:
 	@bin/setup.sh
 
+notebook:
+	@( \
+		source venv/bin/activate; \
+		jupyter notebook \
+	)
 
 parse_data:
 	@( \

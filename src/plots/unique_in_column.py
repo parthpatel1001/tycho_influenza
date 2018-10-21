@@ -19,7 +19,7 @@ with DataFile(file_loc) as file:
 		)
 
 display(HTML(tabulate(
-	sorted([list(pathogen_names)]),
+	sorted([ [l] for l in list(pathogen_names)]),
 	headers=['Unique %s Values' % column_name],
 	tablefmt='html'
 )))

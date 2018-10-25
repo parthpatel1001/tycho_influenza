@@ -12,8 +12,8 @@ notebook:
 		jupyter notebook \
 	)
 
-output: guard-notebook
-output: guard-output
+render: guard-notebook
+render: guard-output
 render:
 	@( \
 		source venv/bin/activate; \

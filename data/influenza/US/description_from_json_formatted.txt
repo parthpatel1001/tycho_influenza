@@ -1,0 +1,15 @@
+Project Tycho datasets contain case counts for reported disease conditions for countries around the world. The Project Tycho data curation team extracts these case counts from various reputable sources, typically from national or international health authorities, such as the US Centers for Disease Control or the World Health Organization. These original data sources include both open- and restricted-access sources. For restricted-access sources, the Project Tycho team has obtained permission for redistribution from data contributors. All datasets contain case count data that are identical to counts published in the original source and no counts have been modified in any way by the Project Tycho team. The Project Tycho team has pre-processed datasets by adding new variables, such as standard disease and location identifiers, that improve data interpretability. We also formatted the data into a standard data format.
+
+Each Project Tycho dataset contains case counts for a specific condition (e.g. measles) and for a specific country (e.g. The United States). Case counts are reported per time interval. In addition to case counts, datasets include information about these counts (attributes), such as the location, age group, subpopulation, diagnostic certainty, place of acquisition, and the source from which we extracted case counts. One dataset can include many series of case count time intervals, such as "US measles cases as reported by CDC", or "US measles cases reported by WHO", or "US measles cases that originated abroad", etc.
+
+Depending on the intended use of a dataset, we recommend a few data processing steps before analysis:
+
+- Analyze missing data: Project Tycho datasets do not include time intervals for which no case count was reported (for many datasets, time series of case counts are incomplete, due to incompleteness of source documents) and users will need to add time intervals for which no count value is available. Project Tycho datasets do include time intervals for which a case count value of zero was reported.
+
+- Separate cumulative from non-cumulative time interval series. Case count time series in Project Tycho datasets can be "cumulative" or "fixed-intervals". 
+	* Cumulative case count time series consist of overlapping case count intervals starting on the same date, but ending on different dates. 
+		* For example, each interval in a cumulative count time series can start on January 1st, but end on January 7th, 14th, 21st, etc. 
+		* It is common practice among public health agencies to report cases for cumulative time intervals. 
+
+	* Case count series with fixed time intervals consist of mutually exclusive time intervals that all start and end on different dates and all have identical length (day, week, month, year). 
+	* Given the different nature of these two types of case count data, we indicated this with an attribute for each count value, named "PartOfCumulativeCountSeries".

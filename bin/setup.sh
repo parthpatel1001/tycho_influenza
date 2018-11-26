@@ -18,5 +18,5 @@ fi
 
 mkdir -p data
 source venv/bin/activate
-pip3 install requirements.txt
+pip3 install -r requirements.txt
 echo 'Setup complete; run `source venv/bin/activate` to load environment'
